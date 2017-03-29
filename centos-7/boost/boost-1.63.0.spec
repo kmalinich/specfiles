@@ -76,15 +76,15 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root, -)
-/usr/lib/*.so*
+/usr/%{_lib}/*.so*
 
 
 %files devel
 %defattr(-, root, root, -)
 %{_includedir}/boost
-/usr/lib/*.so*
+/usr/%{_lib}/*.so*
 
 
 %files static
 %defattr(-, root, root, -)
-/usr/lib/*.a
+/usr/%{_lib}/*.a
