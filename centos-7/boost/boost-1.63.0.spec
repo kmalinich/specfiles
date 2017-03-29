@@ -58,12 +58,12 @@ Static Boost C++ libraries.
 %build
 BOOST_ROOT=`pwd`
 export BOOST_ROOT
-./bootstrap.sh --prefix=%{buildroot}/usr --with-toolset=gcc --with-icu --with-libraries=all
+./bootstrap.sh --prefix=%{buildroot}/usr --libdir=%{buildroot}/%{_lib} --with-toolset=gcc --with-icu --with-libraries=all
 
 
 %install
 install -d -m 755 %{buildroot}/usr
-./b2 --layout=system install
+./b2 --prefix=%{buildroot}/usr --libdir=%{buildroot}/%{_lib} --layout=system variant=release install
 
 
 %clean
