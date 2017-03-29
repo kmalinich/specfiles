@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 %define major_ver 1
 %define minor_ver 63
 %define patch_lvl 0
@@ -58,12 +60,12 @@ Static Boost C++ libraries.
 %build
 BOOST_ROOT=`pwd`
 export BOOST_ROOT
-./bootstrap.sh --prefix=%{buildroot}/usr --libdir=%{buildroot}/%{_lib} --with-toolset=gcc --with-icu --with-libraries=all
+./bootstrap.sh --prefix=%{buildroot}/usr --libdir=%{buildroot}/usr/%{_lib} --with-toolset=gcc --with-icu --with-libraries=all
 
 
 %install
 install -d -m 755 %{buildroot}/usr
-./b2 --prefix=%{buildroot}/usr --libdir=%{buildroot}/%{_lib} --layout=system variant=release install
+./b2 --prefix=%{buildroot}/usr --libdir=%{buildroot}/usr/%{_lib} --layout=system variant=release install
 
 
 %clean
